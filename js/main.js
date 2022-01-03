@@ -80,9 +80,15 @@ function capturarHoraAtual(){
     return painelDoTempo;
 }
 
-
 function cronometrar(){
-    
+    const data = new Date();
+    const horasIniciais = data.getHours();
+    const minutosIniciais = data.getMinutes();
+    const segundosIniciais = data.getSeconds();
+    console.log(segundosIniciais)
+    let minutosCorridos = 0;
+    let horasCorridas = 0;
+
     if(!cronometrando){
         tempoInicial = `Início: ${capturarHoraAtual()}`; 
         horaAtual.text(tempoInicial);
@@ -96,35 +102,43 @@ function cronometrar(){
             clearInterval(intervalo);
             return 
         }
+
+        let dataAtual = new Date();
+        let segundosAtual = dataAtual.getSeconds();
+    
         
-        let horaString = `0${hora}`;
-        let minutosString = `0${minutos}`;
-        let segundosString = `0${segundos}`;
         
-        if(hora > 9) horaString = hora;
-        if(minutos > 9) minutosString = minutos;
-        if(segundos > 9) segundosString = segundos; 
+        if(segundosAtual < segundosIniciais){
+            segundosAtual = (60 + segundosAtual) - segundosIniciais;
+        }
+        else {
+            let minutoAtual = dataAtual.getMinutes();
+            if(minutoAtual < minutosIniciais){
+                minutosCorridos = (60 + minutoAtual) - minutosIniciais;
+            } else {
+                let horaAtual = dataAtual.getHours();
+                horasCorridas = horaAtual - horasIniciais;  
+                minutosCorridos = minutoAtual - minutosIniciais;
+            }
+            segundosAtual = segundosAtual - segundosIniciais;
+        }
+
+        let horaString = `0${horasCorridas}`;
+        let minutosString = `0${minutosCorridos}`;
+        let segundosString = `0${segundosAtual}`;
         
+        if(horasCorridas > 9) horaString = horasCorridas;
+        if(minutosCorridos > 9) minutosString = minutosCorridos;
+        if(segundosAtual > 9) segundosString = segundosAtual; 
+ 
         cronometroAtual = `${horaString}:${minutosString}:${segundosString}`
         
         cronometro.text(cronometroAtual);
-        
-        let valorEditado = String(totalAhCombrar.toFixed(2));
+        let totalDaCobranca = cobrancaInicial + (minutosCorridos*valorPorMinuto)
+        let valorEditado = String(totalDaCobranca.toFixed(2));
         valorEditado = valorEditado.replace('.', ',');
         totalAhCobrar.text(`R$ ${valorEditado}`);
-        
-        segundos++;
-        
-        if(segundos === 60){
-            segundos = 0;
-            minutos++;
-            totalAhCombrar += valorPorMinuto;
-            
-            if(minutos === 60){
-                hora++;
-                minutos = 0;
-            }
-        }
+    
         
     }, 1000)
 }
