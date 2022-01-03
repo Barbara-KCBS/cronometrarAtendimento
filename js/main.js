@@ -16,7 +16,7 @@ let relatorio = $(".relatorio");
 let valorPorMinuto = 0.90;
 let pararCronometro = false;
 let cronometroPausado = false;
-let totalAhCombrar = 15.00;
+let cobrancaInicial = 15.00;
 let hora = 0;
 let minutos = 0;
 let segundos = 0;  
@@ -24,23 +24,8 @@ let cronometroIniciado = false;
 let cronometrando = false;
 let cronometroAtual;
 let tempoInicial;
+let valorEditado;
 
-function finalizarAtendimento(){
-
-    if(!cronometrando){
-        return
-    }
-
-    pararCronometro = true;
-    painel.addClass("esconder");
-    relatorio.removeClass("esconder");
-    
-
-    inicio.text(tempoInicial);
-    fim.text(`Fim: ${capturarHoraAtual()}`);
-    tempoPercorrido.text(`${cronometroAtual}`);
-    valor.text(`R$ ${totalAhCombrar.toFixed(2)}`);
-}
 
 $(".iniciar-cronometro").on("click", () => {
     if(!cronometroIniciado){
@@ -61,6 +46,8 @@ $(".restart").on("click", () => {
 $(".finalizar-atendimento").on("click", finalizarAtendimento);
 
 
+
+
 function capturarHoraAtual(){
     const data = new Date();
     const hora = data.getHours();
@@ -79,6 +66,9 @@ function capturarHoraAtual(){
     horaAtual.text(painelDoTempo);
     return painelDoTempo;
 }
+
+
+
 
 function cronometrar(){
     const data = new Date();
@@ -135,13 +125,15 @@ function cronometrar(){
         
         cronometro.text(cronometroAtual);
         let totalDaCobranca = cobrancaInicial + (minutosCorridos*valorPorMinuto)
-        let valorEditado = String(totalDaCobranca.toFixed(2));
+        valorEditado = String(totalDaCobranca.toFixed(2));
         valorEditado = valorEditado.replace('.', ',');
         totalAhCobrar.text(`R$ ${valorEditado}`);
     
         
     }, 1000)
 }
+
+
 
 function finalizarAtendimento(){
 
@@ -157,7 +149,7 @@ function finalizarAtendimento(){
     inicio.text(tempoInicial);
     fim.text(`Fim: ${capturarHoraAtual()}`);
     tempoPercorrido.text(`Tempo percorrido: ${cronometroAtual}`);
-    valor.text(`Preço: ${totalAhCombrar.toFixed(2)}`);
+    valor.text(`Preço: R$${valorEditado}`);
 }
 
 
