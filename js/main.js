@@ -3,7 +3,7 @@ window.onbeforeunload = function(){
 }
 
 let painel = $(".painel")
-let tempo = $(".hora-atual");
+let horaAtual = $(".hora-atual");
 let cronometro = $(".cronometro");
 let totalAhCobrar = $(".total");
 let inicio = $(".inicio");
@@ -24,23 +24,6 @@ let cronometroIniciado = false;
 let cronometrando = false;
 let cronometroAtual;
 let tempoInicial;
-
-function finalizarAtendimento(){
-
-    if(!cronometrando){
-        return
-    }
-
-    pararCronometro = true;
-    painel.addClass("esconder");
-    relatorio.removeClass("esconder");
-    relatorio.removeClass("mostrar");
-
-    inicio.text(tempoInicial);
-    fim.text(`Fim: ${capturarHoraAtual()}`);
-    tempoPercorrido.text(`Tempo percorrido: ${cronometroAtual}`);
-    valor.text(`Preço: ${totalAhCombrar.toFixed(2)}`);
-}
 
 
 $(".iniciar-cronometro").on("click", () => {
@@ -67,48 +50,49 @@ function capturarHoraAtual(){
     const hora = data.getHours();
     const minutos = data.getMinutes();
     const segundos = data.getSeconds();
-
+    
     let horaString = `0${hora}`;
     let minutosString = `0${minutos}`;
     let segundosString = `0${segundos}`;
-
+    
     if(hora > 9) horaString = hora;
     if(minutos > 9) minutosString = minutos;
     if(segundos > 9) segundosString = segundos; 
-
+    
     let painelDoTempo = `${horaString}:${minutosString}:${segundosString}`;
-    tempo.text(painelDoTempo);
+    horaAtual.text(painelDoTempo);
     return painelDoTempo;
 }
 
 
 function cronometrar(){
-
+    
     if(!cronometrando){
-      tempoInicial = `Início: ${capturarHoraAtual()}`; 
-      tempo.text(tempoInicial);
+        tempoInicial = `Início: ${capturarHoraAtual()}`; 
+        horaAtual.text(tempoInicial);
     }
-
+    
     cronometroIniciado = true;
     cronometrando = true;
-
+    
     const intervalo = setInterval(() => {
         if(pararCronometro === true){
             clearInterval(intervalo);
             return 
         }
-
+        
         let horaString = `0${hora}`;
         let minutosString = `0${minutos}`;
         let segundosString = `0${segundos}`;
-
+        
         if(hora > 9) horaString = hora;
         if(minutos > 9) minutosString = minutos;
         if(segundos > 9) segundosString = segundos; 
-
+        
         cronometroAtual = `${horaString}:${minutosString}:${segundosString}`
-       
+        
         cronometro.text(cronometroAtual);
+        
         let valorEditado = String(totalAhCombrar.toFixed(2));
         valorEditado = valorEditado.replace('.', ',');
         totalAhCobrar.text(`R$ ${valorEditado}`);
@@ -119,16 +103,32 @@ function cronometrar(){
             segundos = 0;
             minutos++;
             totalAhCombrar += valorPorMinuto;
-
+            
             if(minutos === 60){
                 hora++;
                 minutos = 0;
             }
         }
-
+        
     }, 1000)
 }
 
+function finalizarAtendimento(){
+
+    if(!cronometrando){
+        return
+    }
+
+    pararCronometro = true;
+    painel.addClass("esconder");
+    relatorio.removeClass("esconder");
+    relatorio.removeClass("mostrar");
+
+    inicio.text(tempoInicial);
+    fim.text(`Fim: ${capturarHoraAtual()}`);
+    tempoPercorrido.text(`Tempo percorrido: ${cronometroAtual}`);
+    valor.text(`Preço: ${totalAhCombrar.toFixed(2)}`);
+}
 
 
 
