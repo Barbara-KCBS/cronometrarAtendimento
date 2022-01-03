@@ -1,36 +1,76 @@
-.painel{
-    position: relative;
-    width: 700px;
-    height: 400px;
-    border: solid 1px;
-    margin: 0 auto;
-    font-size: 30px;
+@font-face {
+    font-family: MyriadBold; 
+    src: url(./MyriadPro-Bold.otf);
 }
-h1, h2{
-    width: 400px;
-    margin: 0 auto;
+body{
+    align-items: center;
+    display: flex;
+    justify-content: center
+}
+.painel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
+    width: 300px;
+    height: 250px;
+    background: linear-gradient(130deg, rgba(153,0,208,1) 0%, rgba(51,0,204,1) 100%);
+}
+.hora-atual, .cronometro, .total, p{font-family: MyriadBold;}
+.hora-atual, p{
+    color: white;
+    font-size: 2em;
     text-align: center;
+}
+.cronometro{
+    color: white;
+    text-align: center;
+    font-size: 3.5em;
+}
+.total{
+    color: #ff6600;
+    text-align: center;
+    font-size: 3.5em;
 }
 .botoes{
-    width: 700px;
-    margin: 20px auto;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
 }
 .botao{
-    width: 100px;
-    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5em;
+    height: 3.5em;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 100%;
+    transition: 200ms;
 }
+.botao:hover{
+    background-color: #bb4b00;
+}
+
+/* ==========Relatório========== */
+
 .relatorio{
-    width: 500px;
-    height: 600px;
-    border: 1px solid;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
+    width: 300px;
+    height: 250px;
+    background: linear-gradient(130deg, rgba(153,0,208,1) 0%, rgba(51,0,204,1) 100%);
+}
+.tempo-percorrido{
+    color: #ff6600;
+}
+.valor{
+    color: #ff6600;
 }
 .esconder{
     display: none;
-}
-.mostrar{
-    display: block;
 }

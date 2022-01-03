@@ -34,12 +34,12 @@ function finalizarAtendimento(){
     pararCronometro = true;
     painel.addClass("esconder");
     relatorio.removeClass("esconder");
-    relatorio.removeClass("mostrar");
+    
 
     inicio.text(tempoInicial);
     fim.text(`Fim: ${capturarHoraAtual()}`);
-    tempoPercorrido.text(`Tempo percorrido: ${cronometroAtual}`);
-    valor.text(`Preço: ${totalAhCombrar.toFixed(2)}`);
+    tempoPercorrido.text(`${cronometroAtual}`);
+    valor.text(`R$ ${totalAhCombrar.toFixed(2)}`);
 }
 
 
