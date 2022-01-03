@@ -25,6 +25,22 @@ let cronometrando = false;
 let cronometroAtual;
 let tempoInicial;
 
+function finalizarAtendimento(){
+
+    if(!cronometrando){
+        return
+    }
+
+    pararCronometro = true;
+    painel.addClass("esconder");
+    relatorio.removeClass("esconder");
+    
+
+    inicio.text(tempoInicial);
+    fim.text(`Fim: ${capturarHoraAtual()}`);
+    tempoPercorrido.text(`${cronometroAtual}`);
+    valor.text(`R$ ${totalAhCombrar.toFixed(2)}`);
+}
 
 $(".iniciar-cronometro").on("click", () => {
     if(!cronometroIniciado){
