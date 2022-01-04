@@ -39,18 +39,24 @@ body{
     width: 200px;
 }
 .botao{
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 3.5em;
     height: 3.5em;
-    background-color: #ff6600;
-    border: none;
-    border-radius: 100%;
-    transition: 200ms;
+    background-image: linear-gradient(45deg, #ff6600 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    transition: background 200ms ease-in-out;
 }
 .botao:hover{
-    background-color: #bb4b00;
+    background-position: 0;
+}
+.botao:active{
+    background-image: linear-gradient(45deg, #ffc49c 50%, transparent 50%)
 }
 
 /* ==========Relatório========== */
