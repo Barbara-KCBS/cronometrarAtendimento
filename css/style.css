@@ -23,6 +23,9 @@ body{
     font-size: 2em;
     text-align: center;
 }
+.hora-atual{
+    height: 10%;
+}
 .cronometro{
     color: white;
     text-align: center;
@@ -36,7 +39,7 @@ body{
 .botoes{
     display: flex;
     justify-content: space-between;
-    width: 200px;
+    width: 120px;
 }
 .botao{
     background-color: transparent;
