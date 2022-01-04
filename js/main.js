@@ -13,7 +13,6 @@ let valor = $(".valor");
 let relatorio = $(".relatorio");
 
 let imgPlay = $(".imgPlay");
-let imgPause = $(".imgPause");
 
 let valorPorMinuto = 0.90;
 let pararCronometro = false;
@@ -34,19 +33,9 @@ let horasCorridas = 0;
 
 $(".iniciar-cronometro").on("click", cronometrar)
 
-$(".iniciar-cronometro").on("click", () => {
-    if(!cronometroIniciado){
-        imgPlay.addClass("esconder");
-        imgPause.removeClass("esconder");
-        pararCronometro = false;
-        cronometrar();
-    } else {
-        imgPause.addClass("esconder");
-        imgPlay.removeClass("esconder");
-        pararCronometro = true;
-        cronometroIniciado = false;
-    }
-});
+$(".iniciar-cronometro").on("click",cronometrar);
+  
+
 
 
 $(".restart").on("click", () => {
