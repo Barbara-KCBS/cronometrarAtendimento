@@ -17,34 +17,28 @@ let valorPorMinuto = 0.90;
 let pararCronometro = false;
 let cronometroPausado = false;
 let cobrancaInicial = 15.00;
-let hora = 0;
-let minutos = 0;
-let segundos = 0;  
-let cronometroIniciado = false;
 let cronometrando = false;
 let cronometroAtual;
 let tempoInicial;
 let valorEditado;
 
+let data;
+let horasIniciais;
+let minutosIniciais;
+let segundosIniciais;
+let minutosCorridos = 0;
+let horasCorridas = 0;
 
-$(".iniciar-cronometro").on("click", () => {
-    if(!cronometroIniciado){
-        $(".iniciar-cronometro").text("Pause");
-        pararCronometro = false;
-        cronometrar();
-    } else {
-        $(".iniciar-cronometro").text("Play");
-        pararCronometro = true;
-        cronometroIniciado = false;
-    }
-});
+
+$(".iniciar-cronometro").on("click", cronometrar)
+
 
 $(".restart").on("click", () => {
     document.location.reload();
 });
 
-$(".finalizar-atendimento").on("click", finalizarAtendimento);
 
+$(".finalizar-atendimento").on("click", finalizarAtendimento);
 
 
 
@@ -67,24 +61,16 @@ function capturarHoraAtual(){
     return painelDoTempo;
 }
 
-
-
-
 function cronometrar(){
-    const data = new Date();
-    const horasIniciais = data.getHours();
-    const minutosIniciais = data.getMinutes();
-    const segundosIniciais = data.getSeconds();
-    console.log(segundosIniciais)
-    let minutosCorridos = 0;
-    let horasCorridas = 0;
-
+ 
     if(!cronometrando){
         tempoInicial = `Início: ${capturarHoraAtual()}`; 
-        horaAtual.text(tempoInicial);
+        data = new Date();
+        horasIniciais = data.getHours();
+        minutosIniciais = data.getMinutes();
+        segundosIniciais = data.getSeconds();
     }
     
-    cronometroIniciado = true;
     cronometrando = true;
     
     const intervalo = setInterval(() => {
@@ -94,9 +80,7 @@ function cronometrar(){
         }
 
         let dataAtual = new Date();
-        let segundosAtual = dataAtual.getSeconds();
-    
-        
+        let segundosAtual = dataAtual.getSeconds();    
         
         if(segundosAtual < segundosIniciais){
             segundosAtual = (60 + segundosAtual) - segundosIniciais;
@@ -127,8 +111,7 @@ function cronometrar(){
         let totalDaCobranca = cobrancaInicial + (minutosCorridos*valorPorMinuto)
         valorEditado = String(totalDaCobranca.toFixed(2));
         valorEditado = valorEditado.replace('.', ',');
-        totalAhCobrar.text(`R$ ${valorEditado}`);
-    
+        totalAhCobrar.text(`R$ ${valorEditado}`);  
         
     }, 1000)
 }
