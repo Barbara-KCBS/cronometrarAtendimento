@@ -12,6 +12,8 @@ let tempoPercorrido = $(".tempo-percorrido");
 let valor = $(".valor");
 let relatorio = $(".relatorio");
 
+let imgPlay = $(".imgPlay");
+let imgPause = $(".imgPause");
 
 let valorPorMinuto = 0.90;
 let pararCronometro = false;
@@ -31,6 +33,20 @@ let horasCorridas = 0;
 
 
 $(".iniciar-cronometro").on("click", cronometrar)
+
+$(".iniciar-cronometro").on("click", () => {
+    if(!cronometroIniciado){
+        imgPlay.addClass("esconder");
+        imgPause.removeClass("esconder");
+        pararCronometro = false;
+        cronometrar();
+    } else {
+        imgPause.addClass("esconder");
+        imgPlay.removeClass("esconder");
+        pararCronometro = true;
+        cronometroIniciado = false;
+    }
+});
 
 
 $(".restart").on("click", () => {
@@ -127,12 +143,12 @@ function finalizarAtendimento(){
     pararCronometro = true;
     painel.addClass("esconder");
     relatorio.removeClass("esconder");
-    relatorio.removeClass("mostrar");
+
 
     inicio.text(tempoInicial);
     fim.text(`Fim: ${capturarHoraAtual()}`);
-    tempoPercorrido.text(`Tempo percorrido: ${cronometroAtual}`);
-    valor.text(`Preço: R$${valorEditado}`);
+    tempoPercorrido.text(`${cronometroAtual}`);
+    valor.text(`R$ ${valorEditado}`);
 }
 
 
