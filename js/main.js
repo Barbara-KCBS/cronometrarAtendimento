@@ -12,8 +12,6 @@ let tempoPercorrido = $(".tempo-percorrido");
 let valor = $(".valor");
 let relatorio = $(".relatorio");
 
-let imgPlay = $(".imgPlay");
-
 let valorPorMinuto = 0.90;
 let pararCronometro = false;
 let cronometroPausado = false;
@@ -33,18 +31,12 @@ let horasCorridas = 0;
 
 $(".iniciar-cronometro").on("click", cronometrar)
 
-$(".iniciar-cronometro").on("click",cronometrar);
-  
-
-
-
 $(".restart").on("click", () => {
     document.location.reload();
 });
 
 
 $(".finalizar-atendimento").on("click", finalizarAtendimento);
-
 
 
 function capturarHoraAtual(){
@@ -62,7 +54,6 @@ function capturarHoraAtual(){
     if(segundos > 9) segundosString = segundos; 
     
     let painelDoTempo = `${horaString}:${minutosString}:${segundosString}`;
-    horaAtual.text(painelDoTempo);
     return painelDoTempo;
 }
 
