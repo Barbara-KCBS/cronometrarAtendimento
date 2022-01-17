@@ -14,6 +14,7 @@ let relatorio = $(".relatorio");
 
 let imgPlay = $(".imgPlay");
 let imgStop = $(".imgStop");
+let botaoFechar = $(".botaoFechar")
 
 let valorPorMinuto = 0.90;
 let pararCronometro = false;
@@ -49,6 +50,7 @@ $(".restart").on("click", () => {
 
 $(".finalizar-atendimento").on("click", finalizarAtendimento);
 
+$(".botaoFechar").on("click", window.close());
 
 
 

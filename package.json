@@ -1,0 +1,19 @@
+{
+  "name": "cronometraratendimentoelectron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^16.0.7"
+  },
+  "dependencies": {
+    "jquerry": "^0.0.1-security",
+    "jquery": "^3.6.0"
+  }
+}

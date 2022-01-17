@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="Content-Security-Policy" 
+    content="script-src 'self' 'unsafe-inline';"/>
+    <title>ArtFlex</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
     <main class="painel">
-
+        <button class="botaoFixarJanela"><img src="./css/pinWindow.svg" alt="Fixar a Janela Sobreposta"></button>
+        <button class="botaoFechar"><img src="./css/closeApp.svg" alt="Fechar Aplicação"></button>
         <h5 class="hora-atual"></h5>
         <div>
             <h1 class="cronometro">00:00:00</h1>
-            <h2 class="total">R$ 15,00</h2>
+            <h2 class="total">R$ 0,90</h2>
         </div>
         <div class="botoes">
             <button class="iniciar-cronometro botao">
@@ -28,7 +29,8 @@
     </main>
 
     <div class="relatorio esconder">
-
+        <button class="botaoFixarJanela"><img src="./css/pinWindow.svg" alt="Fixar a Janela Sobreposta"></button>
+        <button class="botaoFechar"><img src="./css/closeApp.svg" alt="Fechar Aplicação"></button>
         <p class="inicio"></p>
         <p class="fim"></p>
         <p class="tempo-percorrido"></p>
@@ -38,7 +40,11 @@
     </div>
 
     
-    <script src="./js/jquery.js"></script>
-    <script src="./js/main.js"></script>
+    <script>
+        window.$ = window.jQuery = require("jquery");
+    </script>
+    <script src="./js/main.js"></script> 
+    <!-- <script src="./controller.js"></script>  -->
+    
 </body>
 </html>
