@@ -128,7 +128,7 @@ function cronometrar(){
         cronometroAtual = `${horaString}:${minutosString}:${segundosString}`
         
         cronometro.text(cronometroAtual);
-        let totalDaCobranca = cobrancaInicial + (minutosCorridos*valorPorMinuto)
+        let totalDaCobranca = cobrancaInicial + (horasCorridas*(valorPorMinuto*60)) + (minutosCorridos*valorPorMinuto);
         valorEditado = String(totalDaCobranca.toFixed(2));
         valorEditado = valorEditado.replace('.', ',');
         totalAhCobrar.text(`R$ ${valorEditado}`);
