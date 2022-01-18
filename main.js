@@ -18,14 +18,14 @@ function createWindow () {
         webPreferences: {
           preload: path.join(__dirname, 'preload.js'),
           nodeIntegration: true, 
-          enableRemoteModule: true,
+          contextIsolation: false,
         }
     })
       win.loadFile('index.html')
       win.once('ready-to-show', () => {
         win.show()
       })
-      win.Event
+      win.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {

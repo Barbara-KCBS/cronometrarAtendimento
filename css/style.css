@@ -44,7 +44,7 @@ body{
     justify-content: space-between;
     width: 120px;
 }
-.botao, .botaoFechar, .botaoFixarJanela{
+.botao, .closeApp, .botaoFixarJanela{
     -webkit-app-region: no-drag; /* Electron, desabilita Arrasto da Janela nos botões  */
     background-color: transparent;
     border: 2px solid #fff;
@@ -59,18 +59,18 @@ body{
     background-size: 400%;
     transition: background 200ms ease-in-out;
 }
-.botao:hover, .botaoFechar:hover, .botaoFixarJanela:hover{
+.botao:hover, .closeApp:hover, .botaoFixarJanela:hover{
     background-position: 0;
 }
-.botao:active, .botãoFechar:active, .botaoFixarJanela:active{
+.botao:active, .closeApp:active, .botaoFixarJanela:active{
     background-image: linear-gradient(45deg, #ffc49c 50%, transparent 50%)
 }
-.botaoFechar, .botaoFixarJanela{
+.closeApp, .botaoFixarJanela{
     border: none;
     position: fixed;
     top: 0;
 }
-.botaoFechar{
+.closeApp{
     right: 0;
 }
 .botaoFixarJanela{ /* Botão de Fixar a Janela sobreposta */

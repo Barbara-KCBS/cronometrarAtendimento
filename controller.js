@@ -1,7 +1,8 @@
 // window.onbeforeunload = function(){
 //     return "";
 // }
-// const $ = require('jQuery');
+const $ = require('jQuery');
+const {remote} = require('electron'); //Electron, acesso ao Main.js
 
 let painel = $(".painel");
 let horaAtual = $(".hora-atual");
@@ -15,7 +16,7 @@ let relatorio = $(".relatorio");
 
 let imgPlay = $(".imgPlay");
 let imgStop = $(".imgStop");
-let botaoFechar = $(".botaoFechar");
+let imgClose = $(".closeApp"); //Electron, botão de fechar atribuido
 
 let valorPorMinuto = 0.90;
 let pararCronometro = false;
@@ -51,31 +52,9 @@ $(".restart").on("click", () => {
 
 $(".finalizar-atendimento").on("click", finalizarAtendimento);
 
-
-
-
-
-
-/* ---------------------------------------------------------------------------- */
-
-
-
-const { remote } = require('electron');
-var winCur = remote.getCurrentWindow();
-function fecharJanela(){
-     winCur.close();
-}
-
-$("botaoFechar").on("click", fecharJanela());
-
-
-
-
-
-
-
-/* ---------------------------------------------------------------------------- */
-
+$(".closeApp").on("click", function(){//Electron, Botão de Fechar aplicação
+    close();
+});
 
 
 
