@@ -7,7 +7,7 @@ function createWindow () {
         titleBarStyle: 'hidden',
         width: 300,
         height: 250,
-        title: 'ArtFlex',
+        title: 'ArtFlex 1.0.0',
         alwaysOnTop: true,
         resizable: false,
         fullScreenable: false,
@@ -25,7 +25,7 @@ function createWindow () {
       win.once('ready-to-show', () => {
         win.show()
       })
-      win.webContents.openDevTools()
+      // win.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {
