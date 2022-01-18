@@ -1,8 +1,9 @@
 // window.onbeforeunload = function(){
 //     return "";
 // }
+// const $ = require('jQuery');
 
-let painel = $(".painel")
+let painel = $(".painel");
 let horaAtual = $(".hora-atual");
 let cronometro = $(".cronometro");
 let totalAhCobrar = $(".total");
@@ -14,7 +15,7 @@ let relatorio = $(".relatorio");
 
 let imgPlay = $(".imgPlay");
 let imgStop = $(".imgStop");
-let botaoFechar = $(".botaoFechar")
+let botaoFechar = $(".botaoFechar");
 
 let valorPorMinuto = 0.90;
 let pararCronometro = false;
@@ -50,13 +51,35 @@ $(".restart").on("click", () => {
 
 $(".finalizar-atendimento").on("click", finalizarAtendimento);
 
+
+
+
+
+
+/* ---------------------------------------------------------------------------- */
+
+
+
+const { remote } = require('electron');
+var winCur = remote.getCurrentWindow();
+function fecharJanela(){
+     winCur.close();
+}
+
 $("botaoFechar").on("click", fecharJanela());
 
 
 
-function fecharJanela(){
 
-}
+
+
+
+/* ---------------------------------------------------------------------------- */
+
+
+
+
+
 
 function capturarHoraAtual(){
     const data = new Date();

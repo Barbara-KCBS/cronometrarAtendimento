@@ -1,22 +1,31 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+const $ = require('jQuery');
 
 function createWindow () {
     const win = new BrowserWindow({
         titleBarStyle: 'hidden',
         width: 300,
         height: 250,
-        title: "ArtFlex",
+        title: 'ArtFlex',
         alwaysOnTop: true,
         resizable: false,
         fullScreenable: false,
         maximizable: false,
         minimizable: false,
+        icon: path.join(__dirname,'icon.png'),
+        show: false,
         webPreferences: {
-          preload: path.join(__dirname, 'preload.js')
+          preload: path.join(__dirname, 'preload.js'),
+          nodeIntegration: true, 
+          enableRemoteModule: true,
         }
     })
       win.loadFile('index.html')
+      win.once('ready-to-show', () => {
+        win.show()
+      })
+      win.Event
 }
 
 app.whenReady().then(() => {
