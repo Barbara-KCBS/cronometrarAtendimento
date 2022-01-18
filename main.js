@@ -6,14 +6,17 @@ function createWindow () {
         titleBarStyle: 'hidden',
         width: 300,
         height: 250,
-        resizable: false,
+        title: "ArtFlex",
         alwaysOnTop: true,
+        resizable: false,
+        fullScreenable: false,
+        maximizable: false,
+        minimizable: false,
         webPreferences: {
-        preload: path.join(__dirname, 'preload.js')
+          preload: path.join(__dirname, 'preload.js')
         }
     })
-  
-    win.loadFile('index.html')
+      win.loadFile('index.html')
 }
 
 app.whenReady().then(() => {

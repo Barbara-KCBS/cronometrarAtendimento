@@ -1,6 +1,6 @@
-window.onbeforeunload = function(){
-    return "";
-}
+// window.onbeforeunload = function(){
+//     return "";
+// }
 
 let painel = $(".painel")
 let horaAtual = $(".hora-atual");
@@ -50,9 +50,13 @@ $(".restart").on("click", () => {
 
 $(".finalizar-atendimento").on("click", finalizarAtendimento);
 
-$(".botaoFechar").on("click", window.close());
+$("botaoFechar").on("click", fecharJanela());
 
 
+
+function fecharJanela(){
+
+}
 
 function capturarHoraAtual(){
     const data = new Date();
