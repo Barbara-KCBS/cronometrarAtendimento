@@ -13,7 +13,7 @@ function createWindow () {
         fullScreenable: false,
         maximizable: false,
         minimizable: false,
-        icon: path.join(__dirname,'icon.png'),
+        icon: path.join(__dirname,'icon.ico'),
         show: false,
         webPreferences: {
           preload: path.join(__dirname, 'preload.js'),
