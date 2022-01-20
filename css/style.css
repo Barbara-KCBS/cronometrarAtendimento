@@ -3,6 +3,9 @@
     src: url(./MyriadPro-Bold.otf);
 }
 body{
+    -webkit-user-select: none;/* Electron, desativa a Selecão de Texto parao arrasto da Janela */
+    -webkit-app-region: drag; /* Electron, possibilita Arrasto da Janela */
+    background-color: transparent;
     align-items: center;
     display: flex;
     justify-content: center
@@ -41,7 +44,8 @@ body{
     justify-content: space-between;
     width: 120px;
 }
-.botao{
+.botao, .closeApp, .botaoFixarJanela{
+    -webkit-app-region: no-drag; /* Electron, desabilita Arrasto da Janela nos botões  */
     background-color: transparent;
     border: 2px solid #fff;
     border-radius: 100%;
@@ -55,11 +59,23 @@ body{
     background-size: 400%;
     transition: background 200ms ease-in-out;
 }
-.botao:hover{
+.botao:hover, .closeApp:hover, .botaoFixarJanela:hover{
     background-position: 0;
 }
-.botao:active{
+.botao:active, .closeApp:active, .botaoFixarJanela:active{
     background-image: linear-gradient(45deg, #ffc49c 50%, transparent 50%)
+}
+.closeApp, .botaoFixarJanela{
+    border: none;
+    position: fixed;
+    top: 0;
+}
+.closeApp{
+    right: 0;
+}
+.botaoFixarJanela{ /* Botão de Fixar a Janela sobreposta */
+    left: 0;
+    display: none;
 }
 
 /* ==========Relatório========== */

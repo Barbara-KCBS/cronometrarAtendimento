@@ -1,8 +1,10 @@
-window.onbeforeunload = function(){
-    return "";
-}
+// window.onbeforeunload = function(){
+//     return "";
+// }
+const $ = require('jQuery');
+const {remote} = require('electron'); //Electron, acesso ao Main.js
 
-let painel = $(".painel")
+let painel = $(".painel");
 let horaAtual = $(".hora-atual");
 let cronometro = $(".cronometro");
 let totalAhCobrar = $(".total");
@@ -14,11 +16,12 @@ let relatorio = $(".relatorio");
 
 let imgPlay = $(".imgPlay");
 let imgStop = $(".imgStop");
+let imgClose = $(".closeApp"); //Electron, botão de fechar atribuido
 
 let valorPorMinuto = 0.90;
 let pararCronometro = false;
 let cronometroPausado = false;
-let cobrancaInicial = 15.00;
+let cobrancaInicial = 0.90;
 let hora = 0;
 let minutos = 0;
 let segundos = 0;  
@@ -48,6 +51,11 @@ $(".restart").on("click", () => {
 });
 
 $(".finalizar-atendimento").on("click", finalizarAtendimento);
+
+$(".closeApp").on("click", function(){//Electron, Botão de Fechar aplicação
+    close();
+});
+
 
 
 
