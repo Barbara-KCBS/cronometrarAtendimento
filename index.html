@@ -11,8 +11,8 @@
 </head>
 <body>
     <main class="painel">
-        <button class="botaoFixarJanela"><img src="./css/pinWindow.svg" alt="Fixar a Janela Sobreposta"></button>
-        <button class="closeApp"><img src="./css/closeApp.svg" alt="Fechar Aplicação"></button>
+        <button class="botaoFixarJanela"><img src="./img/pinWindow.svg" alt="Fixar a Janela Sobreposta"></button>
+        <button class="closeApp"><img src="./img/closeApp.svg" alt="Fechar Aplicação"></button>
         <h5 class="hora-atual"></h5>
         <div>
             <h1 class="cronometro">00:00:00</h1>
@@ -20,22 +20,22 @@
         </div>
         <div class="botoes">
             <button class="iniciar-cronometro botao">
-                <img class="imgPlay" src="./css/play.svg" alt="Iniciar Cronometro">
-                <img class="imgStop esconder" src="./css/refresh.svg" alt="Pausar Cronometro">
+                <img class="imgPlay" src="./img/play.svg" alt="Iniciar Cronometro">
+                <img class="imgStop esconder" src="./img/refresh.svg" alt="Reiniciar Cronometro">
             </button>
-            <button class="finalizar-atendimento botao"><img src="./css/report.svg" alt="Finalizar Atendimento"></button>
+            <button class="finalizar-atendimento botao"><img src="./img/report.svg" alt="Finalizar Atendimento"></button>
         </div>
 
     </main>
 
     <div class="relatorio esconder">
-        <button class="botaoFixarJanela"><img src="./css/pinWindow.svg" alt="Fixar a Janela Sobreposta"></button>
-        <button class="closeApp"><img src="./css/closeApp.svg" alt="Fechar Aplicação"></button>
+        <button class="botaoFixarJanela"><img src="./img/pinWindow.svg" alt="Fixar a Janela Sobreposta"></button>
+        <button class="closeApp"><img src="./img/closeApp.svg" alt="Fechar Aplicação"></button>
         <p class="inicio"></p>
         <p class="fim"></p>
         <p class="tempo-percorrido"></p>
         <p class="valor"></p>
-        <button class="restart botao"><img src="./css/refresh.svg" alt="Reiniciar"></button>
+        <button class="restart botao"><img src="./img/refresh.svg" alt="Reiniciar"></button>
 
     </div>
 
@@ -43,7 +43,7 @@
     <script>
         window.$ = window.jQuery = require("jquery");
     </script> 
-    <script src="./controller.js"></script>
+    <script type="module" src="./js/controller.js"></script>
     
 </body>
 </html>

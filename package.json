@@ -2,7 +2,7 @@
   "name": "artflex",
   "version": "1.0.0",
   "description": "Artflex 1.0.0 developed by github.com/Barbara-KCBS, converted to electron by github.com/ismaelzaccah",
-  "main": "main.js",
+  "main": "./js/main.js",
   "dependencies": {
     "abbrev": "^1.1.1",
     "agent-base": "^6.0.2",
