@@ -18,7 +18,7 @@ export class Atendimento {
 
     finalizar() {
         let confirmacao = confirm("Tem certeza de que deseja finalizar o atendimento?");
-        if(confirmacao){
+        if (confirmacao) {
             this._visualizacao.mostrarRelatorio();
         } else {
             return;
@@ -28,11 +28,11 @@ export class Atendimento {
     reiniciar() {
         let confirmacao = confirm("Tem certeza de que deseja reiniciar?");
 
-        if(confirmacao){
+        if (confirmacao) {
             $(".imgPlay").removeClass("esconder");
             $(".imgStop").addClass("esconder");
             document.location.reload();
-            this._atendimentoIniciado = false;       
+            this._atendimentoIniciado = false;
         } else {
             return;
         }

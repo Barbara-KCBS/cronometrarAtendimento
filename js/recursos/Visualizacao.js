@@ -20,9 +20,9 @@ export class Visualizacao {
 
             this._cronometro.cronometrar();
 
-            this._tempoCorrido = this._mostrarTempoCorrido(this._cronometro.hora(), this._cronometro.minutos(), this._cronometro.segundos(), ".cronometro");
+            this._tempoCorrido = this._mostrarTempoCorrido(this._cronometro.hora, this._cronometro.minutos, this._cronometro.segundos, ".cronometro");
 
-            this._totalDaCobranca = this._mostrarCobranca(this._cronometro.minutosCorridos());
+            this._totalDaCobranca = this._mostrarCobranca(this._cronometro.minutosCorridos);
 
 
         }, 1000)

@@ -4,16 +4,20 @@ export class Cronometro {
     _hora = 0;
     _minutosCorridos = 0;
 
-    hora() {
+    get hora() {
         return this._hora;
     }
 
-    minutos() {
+    get minutos() {
         return this._minutos;
     }
 
-    segundos() {
+    get segundos() {
         return this._segundos;
+    }
+
+    get minutosCorridos() {
+        return this._minutosCorridos;
     }
 
     cronometrar() {
@@ -27,9 +31,5 @@ export class Cronometro {
             this._minutos = 0;
             this._hora++;
         }
-    }
-
-    minutosCorridos() {
-        return this._minutosCorridos;
-    }
+    } 
 }
