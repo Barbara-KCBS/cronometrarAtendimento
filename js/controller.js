@@ -5,7 +5,7 @@ import { Atendimento } from "./recursos/Atendimento.js";
 const atendimento = new Atendimento();
 
 $(".iniciar-cronometro").on("click", () => {
-    if (!atendimento.iniciouAtendimento()) {
+    if (!atendimento.iniciou) {
         atendimento.iniciar();
     } else {
         atendimento.reiniciar();
@@ -13,7 +13,7 @@ $(".iniciar-cronometro").on("click", () => {
 })
 
 $(".finalizar-atendimento").on("click", () => {
-    if (atendimento.iniciouAtendimento()) {
+    if (atendimento.iniciou) {
         atendimento.finalizar();
     }
 });

@@ -1,0 +1,14 @@
+Olá! Meu nome é Bárbara e sou iniciante em programação.
+
+Sobre:
+    Este programa cronometra o atendimento e gera cobrança 
+    baseado no tempo percorrido.
+
+Requisitos:
+    Para executar este programa é necessário ter o Node.js 
+    e o framework Electron instalados. 
+
+Execução:
+    No terminal digite "npm start" e pressione enter para 
+    executar.
+

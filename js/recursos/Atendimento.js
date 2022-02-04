@@ -5,7 +5,7 @@ export class Atendimento {
     _visualizacao = new Visualizacao();
     _atendimentoIniciado = false;
 
-    iniciouAtendimento() {
+    get iniciou() {
         return this._atendimentoIniciado;
     }
 
