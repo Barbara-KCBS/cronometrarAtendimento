@@ -2,6 +2,10 @@
     font-family: MyriadBold; 
     src: url(./MyriadPro-Bold.otf);
 }
+*{
+    font-family: MyriadBold;
+    color: white;
+}
 body{
     -webkit-user-select: none;/* Electron, desativa a Selecão de Texto parao arrasto da Janela */
     -webkit-app-region: drag; /* Electron, possibilita Arrasto da Janela */
@@ -98,4 +102,22 @@ body{
 }
 .esconder{
     display: none;
+}
+
+/* ==========Tela de Confirmação========== */
+
+.confirm-screen{
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(130deg, rgba(255,102,0,1) 0%, rgba(153,0,0,1) 100%);
+}
+.confirm-screen p{
+    font-size: 1.5em;
+}
+.botao-sair{
+    background-image: linear-gradient(45deg, rgba(51,0,204,1) 50%, transparent 50%);
 }
